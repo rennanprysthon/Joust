@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+main {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#table {
+  display: grid;
+  grid-template-columns: repeat(8, 70px);
+  grid-template-rows: repeat(8 70px);
+  margin-bottom: 20px;
+}
+
+.house {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d2d296;
+  cursor: pointer;
+}
+
+.house:nth-child(-2n + 8),
+.house:nth-child(8) ~ .house:nth-child(-2n + 15),
+.house:nth-child(16) ~ .house:nth-child(-2n + 24),
+.house:nth-child(24) ~ .house:nth-child(-2n + 31),
+.house:nth-child(32) ~ .house:nth-child(-2n + 40),
+.house:nth-child(40) ~ .house:nth-child(-2n + 47),
+.house:nth-child(48) ~ .house:nth-child(-2n + 56),
+.house:nth-child(56) ~ .house:nth-child(-2n + 63) {
+  background-color: #779455;
+}
+
+#black {
+  color: #333;
+}
+
+#white {
+  color: #fff;
+}
+
+#black,
+#white {
+  font-size: 32px;
+}
+
+.selected {
+}
+
+.avaliable {
+  background-color: #009cbf94 !important;
+}
+
+.used {
+  background-color: #da8585 !important;
+}
+
+.back {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: appears 0.2s;
+  cursor: pointer;
+}
+
+.modal {
+  width: 300px;
+  height: 300px;
+  z-index: 1000;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 300px;
+  margin-top: -150px;
+  margin-left: -200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  animation: appears 0.6s;
+}
+
+@keyframes appears {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal > h3 {
+  font-size: 1.5em;
+}
+
+#btn {
+  padding: 15px 10px;
+  border: 3px solid #333;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+#btn:hover {
+  background-color: #333;
+  border: 3px solid #fff;
+  color: #fff;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
