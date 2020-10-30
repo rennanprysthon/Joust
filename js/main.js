@@ -50,6 +50,11 @@ function initGame() {
 }
 
 function select(e) {    
+    if (e === focused) {
+        uncheckAll()
+        focused = null;
+        return;
+    }
     if (focused) {
         if (avaliablePositions.includes(e)) {
             var horse = focused.firstElementChild;
