@@ -11,7 +11,7 @@ var playerWay = 'white';
 
 
 
-document.querySelector('main').innerHTML += '<div class="back" onclick="dismiss()"></div>';
+document.querySelector('main').innerHTML += '<div class="back" onclick="dismiss(false)"></div>';
 document.querySelector('body').innerHTML += `
     <div class="modal">
         <div id="btn" onclick="initGame()">
@@ -22,7 +22,8 @@ document.querySelector('body').innerHTML += `
 
 function initGame() {
     var table = document.querySelector('#table');
-    dismiss();
+    document.querySelector('.back').remove();
+    document.querySelector('.modal').remove();
     avaliableAll();
 
     rounds = 0;
@@ -146,7 +147,7 @@ function endGame(e) {
 
 function showModal(e) {
     var name = `<h3>${e}</h3>`
-    document.querySelector('main').innerHTML += '<div class="back" onclick="dismiss()"></div>';
+    document.querySelector('main').innerHTML += '<div class="back" onclick="dismiss(true)"></div>';
     document.querySelector('body').innerHTML += `
         <div class="modal">
             ${name}
@@ -157,7 +158,8 @@ function showModal(e) {
     `;
 }
 
-function dismiss() {
+function dismiss(canDismiss) {
+    if (!canDismiss) return
     document.querySelector('.back').remove();
     document.querySelector('.modal').remove();
 }
