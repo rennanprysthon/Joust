@@ -10,7 +10,6 @@ var focused;
 var playerWay = 'white';
 
 
-
 document.querySelector('main').innerHTML += '<div class="back" onclick="dismiss(false)"></div>';
 document.querySelector('body').innerHTML += `
     <div class="modal">
