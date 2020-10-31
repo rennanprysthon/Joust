@@ -1,7 +1,23 @@
 var table = document.querySelector('#table');
 
-var black = `<i id="black" class="fas fa-chess-knight"></i>`;
-var white = `<i id="white" class="fas fa-chess-knight"></i>`;
+const black = `<i id="black" class="fas fa-chess-knight"></i>`;
+const white = `<i id="white" class="fas fa-chess-knight"></i>`;
+
+for(var i = 1; i <=8; i++) {
+    for(var j = 1; j <=8; j++) {
+        var el = `<span id="t${i}${j}" class="house" onclick="select(this)"></span>`
+        table.innerHTML += el;
+    }
+}
+
+var n1 = Math.floor(Math.random() * 8) + 1;
+var n2 = Math.floor(Math.random() * 8) + 1;
+
+var pos1 = document.querySelector(`#t1${n1}`);
+var pos2 = document.querySelector(`#t8${n2}`);
+
+pos1.innerHTML += black;
+pos2.innerHTML += white;  
 
 var rounds = 0;
 var avaliablePositions = [];
@@ -39,6 +55,7 @@ function initGame() {
             table.innerHTML += el;
         }
     }
+
     var n1 = Math.floor(Math.random() * 8) + 1;
     var n2 = Math.floor(Math.random() * 8) + 1;
     
@@ -62,6 +79,7 @@ function select(e) {
             e.appendChild(horse)
             uncheckAll()
             markUsed(focused);
+            focused.classList.remove('focused')
             focused = null;
             rounds++;
             verifyNextPlayer()
@@ -72,6 +90,7 @@ function select(e) {
 
             if (horseName !== playerWay) return;
             focused = e;
+            focused.classList.add('focused')
             checkAvaliablePlaces(getValueFromPosition(e))
             if(avaliablePositions.length < 1) {
                 if(e.firstElementChild.id) {
