@@ -6,7 +6,8 @@
   "author": "Rennan Prysthon <rennandelcastillo@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server"
   },
   "dependencies": {
     "ejs": "^3.1.6",
